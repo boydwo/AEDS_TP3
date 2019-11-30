@@ -8,18 +8,19 @@ typedef char TChave;
 
 typedef int Apontador;
 
-typedef struct{
+typedef struct
+{
     TChave letra;
-}TLetra;
-
-typedef struct{
+} TLetra;
+typedef struct
+{
     TLetra palavra[MAX_TAM_PALAVRA];
-    int tamanho;                        //quantidade de letras
+    int tamanho; //quantidade de letras
     Apontador Primeiro, Ultimo;
-}TPalavra;
+} TPalavra;
 
-void inicializaPalavra(TPalavra* palavra);
-void insereLetra(TPalavra* palavra, TLetra letra);
-void removeLetra(TPalavra* palavra);
+void inicializaPalavra(TPalavra *palavra);
+void insereLetra(TPalavra *palavra, TLetra letra);
+void removeLetra(TPalavra *palavra);
 void imprimePalavra(TPalavra palavra);
 int tamanhoPalavra(TPalavra palavra);
