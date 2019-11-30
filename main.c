@@ -1,17 +1,24 @@
-//#include "Arranjo/TAD_Biblioteca.h"
+#include "Arranjo/TAD_Biblioteca.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+TLetra LetraAleatoria()
+{
+  TLetra Letra;
+  Letra.letra = 97 + (char)(rand() % 26);
+  return Letra;
+}
 
 int main()
 {
 
-  int opcao = -1;
+  int opcao;
   int tipoDado;
   int tamBiblioteca;
   int tamMinTexto;
   int tamMaxTexo;
 
-  printf("3                Trabalho Prático 03 – AEDS 1            \n");
+  printf("                Trabalho Prático 03 – AEDS 1            \n");
   printf("             Lucas Takeshi Moreira Chang - 2665         \n");
   printf("            Marcos Túlio Rodrigues Almeida - 3504       \n");
   printf("           Victor Hugo Rezende dos Santos - 3510        \n");
@@ -24,6 +31,14 @@ int main()
   printf(" ********************************************************* \n");
   printf("SELECIONE A OPÇÃO: ");
   scanf("%d", &opcao);
+
+  printf("                  SELECIONE O TIPO DE DADOS?             \n");
+  printf("                                                         \n");
+  printf("  1 - Arranjo                                            \n");
+  printf("  2 - Lista Encadeada                                    \n");
+  printf(" ******************************************************* \n");
+  printf("Entre com uma opcao: ");
+  scanf("%d", &tipoDado);
 
   switch (opcao)
   {
@@ -44,13 +59,6 @@ int main()
     //case 3 - Ordena Seleção
   case 3:
 
-    printf("                  SELECIONE O TIPO DE DADOS?             \n");
-    printf("                                                         \n");
-    printf("  1 - Arranjo                                            \n");
-    printf("  2 - Lista Encadeada                                    \n");
-    printf(" ******************************************************* \n");
-    printf("Entre com uma opcao: ");
-    scanf("%d", &tipoDado);
     if (tipoDado == 1)
     {
     }
