@@ -13,7 +13,7 @@ void insereLetra(TPalavra *palavra, TLetra letra)
         return;
     else
     {
-        palavra->palavra[palavra->Ultimo - 1] = letra; // possivel erro
+        palavra->palavra[palavra->Ultimo] = letra; // possivel erro
         palavra->Ultimo++;
         palavra->tamanho++;
     }
