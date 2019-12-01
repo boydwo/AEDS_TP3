@@ -17,18 +17,18 @@ int main()
   int tamBiblioteca;
   int tamMinTexto;
   int tamMaxTexo;
-
-  printf("                Trabalho Prático 03 – AEDS 1            \n");
-  printf("             Lucas Takeshi Moreira Chang - 2665         \n");
-  printf("            Marcos Túlio Rodrigues Almeida - 3504       \n");
-  printf("           Victor Hugo Rezende dos Santos - 3510        \n");
-  printf("                                                        \n");
+  printf(" ********************************************************\n");
+  printf("                Trabalho Prático 03 – AEDS 1             \n");
+  printf("             Lucas Takeshi Moreira Chang - 2665          \n");
+  printf("            Marcos Túlio Rodrigues Almeida - 3504        \n");
+  printf("           Victor Hugo Rezende dos Santos - 3510         \n");
+  printf("                                                         \n");
   printf("  1 - Criar Biblioteca                                   \n");
   printf("  2 - Imprimir texto                                     \n");
   printf("  3 - Ordenar com Seleçao                                \n");
   printf("  4 - Ordenar com QuickSort                              \n");
   printf("  5 - Sair                                               \n");
-  printf(" ********************************************************* \n");
+  printf(" ******************************************************* \n");
   printf("SELECIONE A OPÇÃO: ");
   scanf("%d", &opcao);
 
@@ -55,6 +55,15 @@ int main()
 
     //case 2 - imprime texto
   case 2:
+    if (tipoDado == 1)
+    {
+    }
+    else
+    {
+
+      ;
+    }
+    break;
 
     //case 3 - Ordena Seleção
   case 3:
