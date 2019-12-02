@@ -1,112 +1,63 @@
-//#include "Interface.c"
-#include "Arranjo/TAD_Biblioteca.h"
-#include "ListaEncadeada/TAD_Biblioteca.h"
+#include "TAD_Palavra.h"
 
-void selectionForBib(TBiblioteca_Arranjo *listaDeBiblioteca, int tamBib)
+// Declaração das Bibliotecas;
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define TAM 10 // Define o tamanho do vetor;
+
+void fSelect_Sort(int *pVetor); // Declara a função select sort;
+
+int main(void)
 {
-  clock_t tF, tI = clock();
-  double tempo;
-  int movimentacoes = 0, comparacoes = 0;
-  Ttexto_Arranjo i;
-  int vMenor;
+  int vVetor[TAM]; // Declara o vetor
+  int i;
 
-  for (int i = 0; i < tamBib - 1; i++)
+  for (i = 0; i < TAM; i++)
   {
-    vMenor = i;
-    for (int j = i + 1; j < tamBib; j++)
-    {
-      int tamJ, tamMenor;
-      tamJ = listaDeBiblioteca->biblioteca[j].TextoUltimo;
-      comparacoes++;
-      tamMenor = listaDeBiblioteca->biblioteca[vMenor].TextoUltimo;
-      if (tamJ < tamMenor)
-      {
-        vMenor = j;
-      }
-    }
-
-    i = listaDeBiblioteca->biblioteca[vMenor];
-    listaDeBiblioteca->biblioteca[vMenor] = listaDeBiblioteca->biblioteca[i];
-    listaDeBiblioteca->biblioteca[i] = i;
-    movimentacoes += 3;
+    vVetor[i] = (rand() % 89) + 10; // Preenche o vetor aleatóriamente;
+    printf(" %d,", vVetor[i]);
   }
 
-  tF = clock();
-  tempo = (tF - tI) * 1000.0 / CLOCKS_PER_SEC;
-  printf("Algoritmo Seleção:\n");
-  printf("\tComparações: %d\n", comparacoes);
-  printf("\tMovimentações: %d\n", movimentacoes);
-  printf("\tTempo Total Gasto: %lf s\n", tempo / 1000);
+  fSelect_Sort(vVetor); // Chama a função de Ordenação;
+
+  printf("\n\n");
+
+  for (i = 0; i < TAM; i++)
+  {
+    printf(" %d,", vVetor[i]);
+  }
+
+  printf("\n\n ");
+  system("pause");
+  return 0;
 }
 
-void selectionForText(Ttexto_Arranjo *listaDeTexto, int tamText)
+void fSelect_Sort(int *pVetor)
 {
-  clock_t tF, tI = clock();
-  double tempo;
-  int movimentacoes = 0, comparacoes = 0;
   int vMenor;
-  TPalavra_Arranjo i;
-  for (int i = 0; i < tamText - 1; i++)
+  int i;
+  int vTemp;
+  int vTroca;
+
+  for (i = 0; i < TAM - 1; i++) // Percorre todo o vetor até TAM-1, pois a ultima posição não precisa testar pois ja estara ordenada;
   {
     vMenor = i; // Menor valor recebe a posição que está passando;
 
-    for (int j = i + 1; j < tamText; j++) // Percorre o vetor da posição i+1 até o final;
+    for (vTemp = i + 1; vTemp < TAM; vTemp++) // Percorre o vetor da posição i+1 até o final;
     {
-      comparacoes++;
-      if (listaDeTexto->vetorPalavra[j].caractere[0].letra < listaDeTexto->vetorPalavra[vMenor].caractere[0].letra) // Testa se a posição que está passando é menor que o menor valor;
+      if (pVetor[vTemp] < pVetor[vMenor]) // Testa se a posição que está passando é menor que o menor valor;
       {
-        vMenor = j; // vMenor recebe a posição do menor valor;
+        vMenor = vTemp; // vMenor recebe a posição do menor valor;
       }
     }
 
-    i = listaDeTexto->vetorPalavra[vMenor];
-    listaDeTexto->vetorPalavra[vMenor] = listaDeTexto->vetorPalavra[i];
-    listaDeTexto->vetorPalavra[i] = i;
-    movimentacoes += 3;
-  }
-
-  tF = clock();
-  tempo = (tF - tI) * 1000.0 / CLOCKS_PER_SEC;
-  printf("Selection sort:\n");
-  printf("\tComparações: %d\n", comparacoes);
-  printf("\tMovimentações: %d\n", movimentacoes);
-  printf("\tTempo Total Gasto: %lf s\n", tempo / 1000);
-}
-
-int main()
-{
-  TCaractereArranjo Letra_Arranjo;
-  TPalavra_Arranjo Palavra_Arranjo;
-  Ttexto_Arranjo texto_Arranjo;
-  TBiblioteca_Arranjo Biblioteca_Arranjo;
-  int n;
-  FBibVazia(&Biblioteca_Arranjo);
-  srand(time(NULL));
-  for (int i = 0; i < 10; i++)
-  {
-    FazTextoVazia(&texto_Arranjo);
-    int nTextos = 1 + rand() % 10;
-    for (int i = 0; i < nTextos; i++) //formação de texto
+    if (vMenor != i) // Se a posição for diferente da que está passando, ocorre a troca;
     {
-      FazPalavraVazia_Arranjo(&Palavra_Arranjo);
-      int nPalavra = rand() % 20;
-      for (int i = 0; i < nPalavra; i++)
-      {
-        char letra = 97 + (char)(rand() % 26);
-        Letra_Arranjo.letra = letra;
-        InsereLetra_Arranjo(&Palavra_Arranjo, Letra_Arranjo);
-      }
-      InserePalavra(&texto_Arranjo, Palavra_Arranjo);
+      vTroca = pVetor[i];
+      pVetor[i] = pVetor[vMenor];
+      pVetor[vMenor] = vTroca;
     }
-    InsereTexto(&Biblioteca_Arranjo, texto_Arranjo);
   }
-  n = TamanhoBib(&Biblioteca_Arranjo);
-
-  ImprimeBib(&Biblioteca_Arranjo);
-
-  selectionForBib(&Biblioteca_Arranjo, n);
-
-  printf("\n");
-
-  ImprimeBib(&Biblioteca_Arranjo);
 }

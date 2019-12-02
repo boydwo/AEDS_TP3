@@ -12,3 +12,4 @@ void inserePalavra(TTexto *texto, TPalavra palavra);
 void removePalavra(TTexto *texto);
 void imprimeTexto(TTexto texto);
 int tamanhoTexto(TTexto texto);
+void fSelect_Sort(int *pTexto);

@@ -1,5 +1,5 @@
 #define MAX_TAM_PALAVRA 10
-#define MAX_TAM 100000
+#define MAX_TAM 10
 #define INICIO 0
 #include <stdlib.h>
 #include <stdio.h>
