@@ -1,32 +1,36 @@
-#include"TAD_Palavra.h"
+#include "TAD_Palavra.h"
 
-void inicializaPalavra(TPalavra* palavra){
-    palavra->pPrimeiro = (Apontador) malloc(sizeof(TCelula));
-    palavra->pUltimo = palavra->pPrimeiro;
-    palavra->pPrimeiro->pProx = NULL;
+void inicializaPalavra(TPalavra* pPalavra){
+    pPalavra->pPrimeiro = (Apontador) malloc(sizeof(TCelula));
+    pPalavra->pUltimo = pPalavra->pPrimeiro;
+    pPalavra->pPrimeiro->pProx = NULL;
 }
 
-void insereLetra(TPalavra* palavra, TLetra* letra){
-    palavra->pUltimo->pProx = (Apontador) malloc(sizeof(TCelula));
-    palavra->pUltimo = palavra->pUltimo->pProx;
-    palavra->pUltimo->Item = *letra;
-    palavra->pUltimo->pProx = NULL;
+void insereLetra(TPalavra* pPalavra,  TItemLetra *pLetra){
+    pPalavra->pUltimo= (Apontador) malloc(sizeof(TCelula));
+    pPalavra->pUltimo = pPalavra->pUltimo;
+    pPalavra->pUltimo->Letra = *pLetra;
+    pPalavra->pUltimo->pProx = NULL;
+    pPalavra->tamanho++;
 }
 
-void removeLetra(TPalavra* palavra){
+//pode negligenciar o metodo retira ate todo o programa estar funcionando
+//ja q nao vai usar isso quase nunca a nao ser para testar
+//obs pode negligenciar mas deve ser feito. ass vinicius
+void removeLetra(TPalavra* palavra, TItemLetra *pLetra){
 
 }
 
-void imprimePalavra(TPalavra* palavra){
+void imprimePalavra(TPalavra *pPalavra){
     Apontador pAux;
-    pAux = palavra->pPrimeiro->pProx;
+    pAux = pPalavra->pPrimeiro->pProx;
     while (pAux != NULL)
     {
-    printf("%d\n", pAux->letra.letra);
+    printf("%c\n", pAux->Letra.letra);
     pAux = pAux->pProx;
     }
 }
 
-Apontador tamanhoPalavra(TPalavra* palavra){
-    return palavra.pUltimo.tamanho;
+int tamanhoPalavra(TPalavra* pPalavra){
+    return pPalavra->tamanho;
 }
