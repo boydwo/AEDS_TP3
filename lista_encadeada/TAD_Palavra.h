@@ -1,26 +1,23 @@
 #include <stdlib.h>
 #include <stdio.h>
-
-
-typedef char TChave;
 typedef struct{
-    TChave letra;
-}TLetra;
-
-typedef TCelula* Apontador;
-typedef struct{
-    TLetra letra;
+    char letra; //pra q isso? a chave é so a letra, a lista inteira vai ser a palavra ass: vinicius
+}TItemLetra;
+typedef struct TCelula *Apontador;
+typedef struct TCelula{
+    TItemLetra Letra;
     Apontador pProx;
-    int tamanho;            //guarda um acumulador para calcular o tamanho pegando o valor que está no ultimo item
 }TCelula;
 
 typedef struct{
     Apontador pPrimeiro;
     Apontador pUltimo;
+    int tamanho; //guarda um acumulador para calcular o tamanho pegando o valor que está no ultimo item
 }TPalavra;
 
-void inicializaPalavra(TPalavra* palavra);
-void insereLetra(TPalavra* palavra, TLetra letra);
-void removeLetra(TPalavra* palavra);
-void imprimePalavra(TPalavra palavra);
-int tamanhoPalavra(TPalavra palavra);
+void inicializaPalavra(TPalavra *pPalavra);
+void insereLetra(TPalavra *pPalavra, TItemLetra *pLetra);
+void removeLetra(TPalavra *pPalavra, TItemLetra *pLetra);
+void imprimePalavra(TPalavra *pPalavra);
+int tamanhoPalavra(TPalavra *pPalavra);
+
