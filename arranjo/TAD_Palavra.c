@@ -10,7 +10,7 @@ void inicializaPalavra(TPalavra *palavra)
 void insereLetra(TPalavra *palavra, TLetra letra)
 {
     if (palavra->Ultimo > MAX_TAM_PALAVRA)
-        return;
+        return 0; //lista cheia
     else
     {
         palavra->palavra[palavra->Ultimo] = letra; // possivel erro
@@ -25,14 +25,14 @@ void removeLetra(TPalavra *palavra)
     palavra->tamanho--; //possivel erro
 }
 
-void imprimePalavra(TPalavra palavra)
+void imprimePalavra(TPalavra *palavra)
 {
     int i;
-    for (i = palavra.Primeiro; i < palavra.Ultimo; i++)
-        printf("%d\n", palavra.palavra[i].letra);
+    for (i = palavra->Primeiro; i < palavra->Ultimo; i++)
+        printf("%d\n", palavra->palavra[i].letra);
 }
 
-int tamanhoPalavra(TPalavra palavra)
+int tamanhoPalavra(TPalavra *palavra)
 {
-    return palavra.tamanho;
+    return palavra->tamanho;
 }

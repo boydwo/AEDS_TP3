@@ -22,5 +22,5 @@ typedef struct
 void inicializaPalavra(TPalavra *palavra);
 void insereLetra(TPalavra *palavra, TLetra letra);
 void removeLetra(TPalavra *palavra);
-void imprimePalavra(TPalavra palavra);
-int tamanhoPalavra(TPalavra palavra);
+void imprimePalavra(TPalavra *palavra);
+int tamanhoPalavra(TPalavra *palavra);

@@ -25,14 +25,14 @@ void removePalavra(TTexto *texto)
     texto->tamanho--;
 }
 
-void imprimeTexto(TTexto texto)
+void imprimeTexto(TTexto *texto)
 {
     int i;
-    for (i = texto.Primeiro; i < texto.Ultimo; i++)
-        printf("%d\n", texto.texto[i].palavra);
+    for (i = texto->Primeiro; i < texto->Ultimo; i++)
+        printf("%d\n", texto->texto[i].palavra);
 }
 
-int tamanhoTexto(TTexto texto)
+int tamanhoTexto(TTexto *texto)
 {
-    return texto.tamanho;
+    return texto->tamanho;
 }
