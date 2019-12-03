@@ -30,8 +30,9 @@ void imprimePalavra(TPalavra *pPalavra){
     {
         printf("%c", pAux->Letra.letra);
         pAux = pAux->pProx;
-
+        
     }
+     printf("\n");
 }
 
 int tamanhoPalavra(TPalavra* pPalavra){

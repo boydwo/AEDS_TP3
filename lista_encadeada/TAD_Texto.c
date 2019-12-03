@@ -25,5 +25,6 @@ void imprimeTexto(TTexto *pTexto){
         imprimePalavra(&pAux->pPPalavra);
         pAux = pAux->pProx;
     }
+    
 }
 

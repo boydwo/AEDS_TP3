@@ -1,18 +1,20 @@
 #include  "TAD_Texto.h"
 
+
 int  main ()
 {
     int TamPalavra,i,TamTexto,cont=0;
     TPalavra pPalavra;
     TItemLetra LetraAll;
     TTexto pTexto;
-    inicializaPalavra(&pPalavra);
+    
     inicializaTexto(&pTexto);
     char ALL;
     printf("Digite a quantidade de palavra: ");
     scanf("%d",&TamTexto);
     int TamPal[TamTexto];
     do{
+        inicializaPalavra(&pPalavra);
         TamPalavra = 1 + rand ()% 7 ;
         for(i=0;i<TamPalavra;i++){
             ALL = ('a'+( rand ()% 26 ));
@@ -20,13 +22,16 @@ int  main ()
             insereLetra( &pPalavra ,LetraAll);
 
         }
-        imprimePalavra(&pPalavra);
+
+        insereTexto(&pTexto,pPalavra);
         TamPal[cont]=tamanhoPalavra(&pPalavra);
-        printf("\n");
         cont++;
     }while(cont != TamTexto);
-//        insereTexto(&pTexto,pPalavra);
-//        imprimeTexto(&pTexto);
+        imprimeTexto(&pTexto);
+    
+
+
+
 //
 //    int opcao, tipoDado, tamBiblioteca,tamMinTexto, tamMaxTexo;
 //    printf ( "                 Trabalho Pratico 03 - AEDS 1             \n" );
