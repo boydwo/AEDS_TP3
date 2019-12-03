@@ -1,17 +1,22 @@
+#ifndef TAD_TEXTO_H_INCLUDED
+#define TAD_TEXTO_H_INCLUDED
 #include "TAD_Palavra.h"
+typedef struct TCelulaTe *Apont;
+typedef struct TCelulaTe{
+    TPalavra pPPalavra;
+    Apont pProx;
+}TCelulaTexto;
 
 typedef struct{
-    TPalavra palavra;
-    Apontador pProx;
-}TCelula;
-
-typedef struct{
-    Apontador pPrimeiro;
-    Apontador pUltimo;
+    Apont pPrimeiro;
+    Apont pUltimo;
 }TTexto;
 
-void inicializaTexto(TTexto* texto);
-void inserePalavra(TTexto* texto, TPalavra palavra);
-void removePalavra(TTexto* texto);
-void imprimeTexto(TTexto texto);
-int tamanhoTexto(TTexto texto);
+void inicializaTexto(TTexto* pTexto);
+void insereTexto(TTexto* pTexto, TPalavra pPPalavra);
+void removeTexto(TTexto* pTexto, TPalavra pPPalavra);
+void imprimeTexto(TTexto *pTexto);
+
+
+
+#endif // TAD_TEXTO_H_INCLUDED

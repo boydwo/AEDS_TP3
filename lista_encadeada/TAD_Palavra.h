@@ -1,26 +1,28 @@
+#ifndef TAD_PALAVRA_H_INCLUDED
+#define TAD_PALAVRA_H_INCLUDED
 #include <stdlib.h>
 #include <stdio.h>
 
-
-typedef char TChave;
 typedef struct{
-    TChave letra;
-}TLetra;
-
-typedef TCelula* Apontador;
-typedef struct{
-    TLetra letra;
+    char letra;
+}TItemLetra;
+typedef struct Celula *Apontador;
+typedef struct Celula{
+    TItemLetra Letra;
     Apontador pProx;
-    int tamanho;            //guarda um acumulador para calcular o tamanho pegando o valor que est√° no ultimo item
 }TCelula;
 
 typedef struct{
     Apontador pPrimeiro;
     Apontador pUltimo;
+    int tamanho; //guarda um acumulador para calcular o tamanho pegando o valor que est· no ultimo item
 }TPalavra;
+void inicializaPalavra(TPalavra *pPalavra);
+void insereLetra(TPalavra *pPalavra,TItemLetra pLetra);
+void removeLetra(TPalavra *pPalavra, TItemLetra pLetra);
+void imprimePalavra(TPalavra *pPalavra);
+int tamanhoPalavra(TPalavra* pPalavra);
 
-void inicializaPalavra(TPalavra* palavra);
-void insereLetra(TPalavra* palavra, TLetra letra);
-void removeLetra(TPalavra* palavra);
-void imprimePalavra(TPalavra palavra);
-int tamanhoPalavra(TPalavra palavra);
+
+
+#endif // TAD_PALAVRA_H_INCLUDED
