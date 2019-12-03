@@ -15,7 +15,7 @@ typedef struct Celula{
 typedef struct{
     Apontador pPrimeiro;
     Apontador pUltimo;
-    int tamanho; //guarda um acumulador para calcular o tamanho pegando o valor que está no ultimo item
+    int tamanho; //guarda um acumulador para calcular o tamanho pegando o valor que estï¿½ no ultimo item
 }TPalavra;
 void inicializaPalavra(TPalavra *pPalavra);
 void insereLetra(TPalavra *pPalavra,TItemLetra pLetra);

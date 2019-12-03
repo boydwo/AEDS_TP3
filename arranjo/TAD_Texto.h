@@ -1,13 +1,15 @@
 #include "TAD_Palavra.h"
 
-typedef struct{
+typedef struct
+{
     TPalavra texto[MAX_TAM];
-    int tamanho;                    //quantidade de palavras
+    int tamanho; //quantidade de palavras
     Apontador Primeiro, Ultimo;
-}TTexto;
+} TTexto;
 
-void inicializaTexto(TTexto* texto);
-void inserePalavra(TTexto* texto, TPalavra palavra);
-void removePalavra(TTexto* texto);
+void inicializaTexto(TTexto *texto);
+void inserePalavra(TTexto *texto, TPalavra palavra);
+void removePalavra(TTexto *texto);
 void imprimeTexto(TTexto texto);
 int tamanhoTexto(TTexto texto);
+void fSelect_Sort(int *pTexto);
