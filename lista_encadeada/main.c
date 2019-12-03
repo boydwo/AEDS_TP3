@@ -1,35 +1,35 @@
-#include  "TAD_Texto.h"
-
-
+#include "TAD_Biblioteca.h"
 int  main ()
-{
-    int TamPalavra,i,TamTexto,cont=0;
+{   
+    int TamPalavra,i,TamTexto,cont=0,QntTexto,j;
     TPalavra pPalavra;
     TItemLetra LetraAll;
     TTexto pTexto;
+    TBiblioteca pBbt;
     
-    inicializaTexto(&pTexto);
     char ALL;
-    printf("Digite a quantidade de palavra: ");
-    scanf("%d",&TamTexto);
-    int TamPal[TamTexto];
-    do{
-        inicializaPalavra(&pPalavra);
-        TamPalavra = 1 + rand ()% 7 ;
-        for(i=0;i<TamPalavra;i++){
-            ALL = ('a'+( rand ()% 26 ));
-            LetraAll.letra = ALL;
-            insereLetra( &pPalavra ,LetraAll);
-
-        }
-
-        insereTexto(&pTexto,pPalavra);
-        TamPal[cont]=tamanhoPalavra(&pPalavra);
-        cont++;
-    }while(cont != TamTexto);
-        imprimeTexto(&pTexto);
-    
-
+    inicializaBbt(&pBbt);
+    printf("\nDigite a quantidade de textos: ");
+    scanf("%d",&QntTexto);
+     for(j=0;j<QntTexto;j++){
+         cont=0;
+        inicializaTexto(&pTexto);
+        printf("Digite a quantidade de palavra: ");
+        scanf("%d",&TamTexto);
+        do{
+            inicializaPalavra(&pPalavra);
+            TamPalavra = 1 + rand ()% 7 ;
+            for(i=0;i<TamPalavra;i++){
+                ALL = ('a'+( rand ()% 26 ));
+                LetraAll.letra = ALL;
+                insereLetra( &pPalavra ,LetraAll);
+            }
+            insereTexto(&pTexto,pPalavra);
+            cont++;
+        }while(cont != TamTexto);
+        insereBbt(&pBbt,pTexto);
+     }
+     imprimeBbt(&pBbt);
 
 
 //
