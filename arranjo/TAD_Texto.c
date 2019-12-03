@@ -28,8 +28,12 @@ void removePalavra(TTexto *texto)
 void imprimeTexto(TTexto *texto)
 {
     int i;
-    for (i = texto->Primeiro; i < texto->Ultimo; i++)
-        printf("%d\n", texto->texto[i].palavra);
+    for (i = 0; i < texto->tamanho; i++)
+    {
+        imprimePalavra(&texto->texto[i]);
+        printf("\n");
+    }
+    //printf("%c", texto[i]->palavra);
 }
 
 int tamanhoTexto(TTexto *texto)
