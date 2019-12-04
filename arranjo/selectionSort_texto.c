@@ -1,16 +1,4 @@
-#include "TAD_Biblioteca.h"
-#include <time.h>
-
-#define TAM 10
-
-int main(void)
-{
-  TTexto texto[TAM];
-  int i;
-
-  fSelect_Sort(&texto);
-  return 0;
-}
+#include "TAD_Texto.h"
 
 int compara(TPalavra *palavra1, TPalavra *palavra2)
 {
@@ -28,7 +16,8 @@ int compara(TPalavra *palavra1, TPalavra *palavra2)
     return -1; //palavra igual
   }
 
-void Select_Sort(TTexto pTexto){
+
+{
     int menor;
     int i;
     int j;
@@ -43,6 +32,7 @@ void Select_Sort(TTexto pTexto){
 
       for (j = i + 1; j < pTexto->Ultimo; j++) // Percorre o vetor da posição i+1 até o final;
       {
+        //chamando funcao compara
         result = compara(ptexto->texto[j], ptexto->texto[menor]);
         if (result == 0) // Testa se a posição que está passando é menor que o menor valor;
         {
