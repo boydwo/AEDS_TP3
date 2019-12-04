@@ -18,14 +18,18 @@ void insereTexto(TBiblioteca *biblioteca, TTexto texto)
         biblioteca->tamanho++;
     }
 }
+int imprimeBiblioteca(TBiblioteca *biblioteca)
+{
+    int i;
+    for (i = 0; i < biblioteca->tamanho; i++)
+        imprimeTexto(&biblioteca->biblioteca[i]);
+}
 
 void removetexto(TBiblioteca *biblioteca)
 {
-    biblioteca->Ultimo--;
-    biblioteca->tamanho--;
 }
 
-int tamanhoBiblioteca(TBiblioteca biblioteca)
+int tamanhoBiblioteca(TBiblioteca *biblioteca)
 {
-    return biblioteca.tamanho;
+    return biblioteca->tamanho;
 }

@@ -1,34 +1,42 @@
-#include "TAD_Texto.h"
+#include "TAD_Biblioteca.h"
 
 int main()
 {
-  int TamPalavra, i, TamTexto, cont = 0;
+  int TamPalavra, i, TamTexto, cont = 0, qntTexto, j;
   TPalavra pPalavra;
   TLetra LetraAll;
   TTexto pTexto;
-
-  inicializaTexto(&pTexto);
+  TBiblioteca bbt;
+  printf("meu cu");
   char ALL;
-  printf("Digite a quantidade de palavra: ");
-  scanf("%d", &TamTexto);
-  //vetor palavra
-  int TamPal[TamTexto];
-  do
+  inicializaBiblioteca(&bbt);
+  printf("\nDigite a quantidade de textos: ");
+  scanf("%d", &qntTexto);
+  for (j = 0; j < qntTexto; j++)
   {
-    inicializaPalavra(&pPalavra);
-    TamPalavra = 1 + rand() % 7;
-    for (i = 0; i < TamPalavra; i++)
+    inicializaTexto(&pTexto);
+    printf("Digite a quantidade de palavra: ");
+    scanf("%d", &TamTexto);
+    //vetor palavra
+    //\ int TamPal[TamTexto];
+    do
     {
-      ALL = ('a' + (rand() % 26));
-      LetraAll.letra = ALL;
-      insereLetra(&pPalavra, LetraAll);
-    }
+      inicializaPalavra(&pPalavra);
+      TamPalavra = 1 + rand() % 7;
+      for (i = 0; i < TamPalavra; i++)
+      {
+        ALL = ('a' + (rand() % 26));
+        LetraAll.letra = ALL;
+        insereLetra(&pPalavra, LetraAll);
+      }
 
-    inserePalavra(&pTexto, pPalavra);
-    TamPal[cont] = tamanhoPalavra(&pPalavra);
-    cont++;
-  } while (cont != TamTexto);
-  imprimeTexto(&pTexto);
+      inserePalavra(&pTexto, pPalavra);
+      //TamPal[cont] = tamanhoPalavra(&pPalavra);
+      cont++;
+    } while (cont != TamTexto);
+    insereTexto(&bbt, pTexto);
+  }
+  imprimeBiblioteca(&bbt);
 
   return 0;
 }
