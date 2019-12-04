@@ -7,7 +7,6 @@ int main()
   TLetra LetraAll;
   TTexto pTexto;
   TBiblioteca bbt;
-  printf("meu cu");
   char ALL;
   inicializaBiblioteca(&bbt);
   printf("\nDigite a quantidade de textos: ");
@@ -17,6 +16,7 @@ int main()
     inicializaTexto(&pTexto);
     printf("Digite a quantidade de palavra: ");
     scanf("%d", &TamTexto);
+    cont = 0;
     //vetor palavra
     //\ int TamPal[TamTexto];
     do
