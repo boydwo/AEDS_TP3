@@ -15,6 +15,7 @@ int  main ()
      for(j=0;j<QntTexto;j++){
          cont=0;
         inicializaTexto(&pTexto);
+    
         printf("Digite a quantidade de palavra: ");
         scanf("%d",&TamTexto);
             somaQnt= somaQnt+TamTexto;
