@@ -35,6 +35,8 @@ void imprimePalavra(TPalavra *pPalavra){
      printf("\n");
 }
 
+
 int tamanhoPalavra(TPalavra* pPalavra){
     return pPalavra->tamanho;
 }
+
