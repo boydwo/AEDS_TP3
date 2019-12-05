@@ -30,6 +30,8 @@ void removetexto(TBiblioteca *biblioteca)
 {
 }
 
+//-------------------------------------SELECT SORT-------------------------------------
+
 //ordena biblioteca
 int comparaBbbt(TTexto *texto1, TTexto *texto2)
 {
@@ -73,3 +75,5 @@ void Select_Sort_bbt(TBiblioteca pBbt)
 
     imprimeBiblioteca(&pBbt);
 }
+
+//-------------------------------------QUICK SORT-------------------------------------
