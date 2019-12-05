@@ -41,8 +41,6 @@ int tamanhoTexto(TTexto *texto)
     return texto->tamanho;
 }
 
-//-------------------------------------SELECT SORT-------------------------------------
-
 // ordena texto
 int comparaPalavra(TPalavra *palavra1, TPalavra *palavra2)
 {
@@ -91,44 +89,52 @@ void Select_Sort(TTexto pTexto)
     imprimeTexto(&pTexto);
 }
 
-//-------------------------------------QUICK SORT-------------------------------------
-
 //ordena texto
-void QuickSort(TTexto pTexto){
-    Ordena(INICIO, MAX_TAM - 1, pTexto);
+void QuickSort(TTexto pTexto)
+{
+    Ordena(INICIO, pTexto.Ultimo - 1, &pTexto);
     imprimeTexto(&pTexto);
 }
 
-void Ordena(int Esq, int Dir, TTexto pTexto){
+void Ordena(int Esq, int Dir, TTexto *pTexto)
+{
     int i, j;
     Particao(Esq, Dir, &i, &j, pTexto);
-    if(Esq < j){
+    if (Esq < j)
+    {
         Ordena(Esq, j, pTexto);
     }
-    if(i < Dir){
+    if (i < Dir)
+    {
         Ordena(i, Dir, pTexto);
     }
 }
 
-void Particao(int Esq, int Dir, int* i, int* j, TTexto pTexto){
+void Particao(int Esq, int Dir, int *i, int *j, TTexto *pTexto)
+{
     TPalavra pivo, aux;
     *i = Esq;
     *j = Dir;
-    pivo = pTexto.texto[(*i + *j)/2];
+    pivo = pTexto->texto[(*i + *j) / 2];
 
-    do{
-        while(pivo.palavra > pTexto.texto[*i].palavra){
+    do
+    {
+        while (pivo.palavra > pTexto->texto[*i].palavra)
+        {
             (*i)++;
         }
-        while(pivo.palavra < pTexto.texto[*j].palavra){
+        while (pivo.palavra < pTexto->texto[*j].palavra)
+        {
             (*j)++;
         }
-        if(*i <= *j){
-            aux = pTexto.texto[*i];
-            pTexto.texto[*i] = pTexto.texto[*j];
-            pTexto.texto[*j] = aux;
+        if (*i <= *j)
+        {
+            aux = pTexto->texto[*i];
+            pTexto->texto[*i] = pTexto->texto[*j];
+            pTexto->texto[*j] = aux;
             (*i)++;
             (*j)--;
-        }while(*i <= *j);
-    }
+        }
+
+    } while (*i <= *j);
 }
