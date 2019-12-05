@@ -14,3 +14,6 @@ void imprimeTexto(TTexto *texto);
 int tamanhoTexto(TTexto *texto);
 int comparaPalavra(TPalavra *palavra1, TPalavra *palavra2);
 void Select_Sort(TTexto pTexto);
+void Particao(int Esq, int Dir, int* i, int* j, TTexto pTexto);
+void Ordena(int Esq, int Dir, TTexto pTexto);
+void QuickSort(TTexto pTexto);
