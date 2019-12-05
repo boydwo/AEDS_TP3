@@ -1,45 +1,198 @@
-#include "TAD_Biblioteca.h"
+#include "./TAD_Biblioteca.h"
 
 int main()
 {
-  int TamPalavra, i, TamTexto, cont = 0, qntTexto, j;
+  int tamPalavra, i, tamTexto, cont = 0, tamBiblioteca, j, tipoDado, opcao, ALL;
   TPalavra pPalavra;
-  TLetra LetraAll;
+  TLetra pLetra;
   TTexto pTexto;
   TBiblioteca bbt;
-  char ALL;
+
+  printf("                 Trabalho Pratico 03 - AEDS 1             \n");
+  printf("              Lucas Takeshi Moreira Chang - 2665          \n");
+  printf("             Marcos Tulio Rodrigues Almeida - 3504        \n");
+  printf("            Victor Hugo Rezende dos Santos - 3510         \n");
+  printf("                                                         \n");
+  //iniciando Biblioteca >>>> primeira vez
+  printf("                  INICIANDO BIBLIOTECA             \n");
+
   inicializaBiblioteca(&bbt);
   printf("\nDigite a quantidade de textos: ");
-  scanf("%d", &qntTexto);
-  for (j = 0; j < qntTexto; j++)
+  scanf("%d", &tamBiblioteca);
+  for (j = 0; j < tamBiblioteca; j++)
   {
     inicializaTexto(&pTexto);
-    printf("Digite a quantidade de palavra: ");
-    scanf("%d", &TamTexto);
+    printf("Digite a quantidade de palavra do texto %d: ", j + 1);
+    scanf("%d", &tamTexto);
     cont = 0;
-    //vetor palavra
-    //\ int TamPal[TamTexto];
     do
     {
       inicializaPalavra(&pPalavra);
-      TamPalavra = 1 + rand() % 7;
-      for (i = 0; i < TamPalavra; i++)
+      tamPalavra = 1 + rand() % 7;
+      for (i = 0; i < tamPalavra; i++)
       {
         ALL = ('a' + (rand() % 26));
-        LetraAll.letra = ALL;
-        insereLetra(&pPalavra, LetraAll);
+        pLetra.letra = ALL;
+        insereLetra(&pPalavra, pLetra);
       }
-
       inserePalavra(&pTexto, pPalavra);
-      //TamPal[cont] = tamanhoPalavra(&pPalavra);
       cont++;
-    } while (cont != TamTexto);
+    } while (cont != tamTexto);
     insereTexto(&bbt, pTexto);
   }
   imprimeBiblioteca(&bbt);
-  printf("\n8888888888888888888888888888888888888888888888888\n");
-  printf("\n-----------------------bbt------------------------\n");
-  Select_Sort_bbt(bbt);
 
-  return 0;
+  printf(" \n                  SELECIONE O TIPO DE DADOS?              \n");
+  printf("\n");
+  printf("   1 - Arranjo                                             \n");
+  printf("   2 - Lista Encadeada                                     \n");
+  printf(" ********************************************************* \n");
+  scanf("%d", &tipoDado);
+
+  switch (tipoDado)
+  {
+  case 1:
+    do
+    {
+      printf(" Entre com uma opcao: \n");
+      printf("   1 - Recriar Biblioteca                                    \n");
+      printf("   --------------------------------------------------------- \n");
+      printf("   2 - Imprimir Biblioteca                                   \n");
+      printf("   3 - SelectionSort                                         \n");
+      printf("   4 - QuickSort                                             \n");
+      printf("   5 - Sair                                                  \n ");
+      printf(" ************************************************* ********* \n");
+      printf(" SELECIONE A OPCAO: ");
+
+      scanf("%d", &opcao);
+      switch (opcao)
+      {
+      case 1:
+
+        inicializaBiblioteca(&bbt);
+        printf("\nDigite a quantidade de textos: ");
+        scanf("%d", &tamBiblioteca);
+        for (j = 0; j < tamBiblioteca; j++)
+        {
+          inicializaTexto(&pTexto);
+          printf("Digite a quantidade de palavra do texto %d: ", j + 1);
+          scanf("%d", &tamTexto);
+          int i, cont = 0, ALL;
+          do
+          {
+            inicializaPalavra(&pPalavra);
+            tamPalavra = 1 + rand() % 7;
+            for (i = 0; i < tamPalavra; i++)
+            {
+              ALL = ('a' + (rand() % 26));
+              pLetra.letra = ALL;
+              insereLetra(&pPalavra, pLetra);
+            }
+            inserePalavra(&pTexto, pPalavra);
+            cont++;
+          } while (cont != tamTexto);
+          insereTexto(&bbt, pTexto);
+        }
+        imprimeBiblioteca(&bbt);
+      case 2:
+        // caso 3 - Ordena Seleção
+      case 3:
+        do
+        {
+          printf("   1 - Ordenar TOOS os Texto      \n");
+          printf("   2- Ordernar Biblioteca \n");
+          scanf("%d", &opcao);
+          switch (opcao)
+          {
+          case 1:
+            for (int i; i < tamBiblioteca; i++)
+            {
+              Select_Sort(bbt.biblioteca[i]);
+            }
+            break;
+
+          case 2:
+            Select_Sort_bbt(bbt);
+            break;
+          default:
+            break;
+          }
+        } while (opcao != 5);
+
+        //-------------------------------------------------------------------------
+      }
+    }
+
+    // void menuOpcoes(int *tamanhoPalavra, int *tamanhoTexto, int *tamanhoBiblioteca, int *opcao, TPalavra *pPalavra, TLetra *pLetra, TTexto *pTexto, TBiblioteca *bbt)
+    // {
+    //   do
+    //   {
+    //     printf(" Entre com uma opcao: \n");
+    //     printf("   1 - Recriar Biblioteca                                    \n");
+    //     printf("   --------------------------------------------------------- \n");
+    //     printf("   2 - Imprimir Biblioteca                                   \n");
+    //     printf("   3 - SelectionSort                                         \n");
+    //     printf("   4 - QuickSort                                             \n");
+    //     printf("   5 - Sair                                                  \n ");
+    //     printf(" ************************************************* ********* \n");
+    //     printf(" SELECIONE A OPCAO: ");
+
+    //     scanf("%d", &*opcao);
+    //     switch (*opcao)
+    //     {
+    //     case 1:
+
+    //       inicializaBiblioteca(&bbt);
+    //       printf("\nDigite a quantidade de textos: ");
+    //       scanf("%d", &*tamanhoBiblioteca);
+    //       for (j = 0; j < *tamanhoBiblioteca; j++)
+    //       {
+    //         inicializaTexto(&pTexto);
+    //         printf("Digite a quantidade de palavra do texto %d: ", j + 1);
+    //         scanf("%d", &*tamanhoTexto);
+    //         int i, cont = 0, ALL;
+    //         do
+    //         {
+    //           inicializaPalavra(&pPalavra);
+    //           tamanhoPalavra = 1 + rand() % 7;
+    //           for (i = 0; i < *tamanhoPalavra; i++)
+    //           {
+    //             ALL = ('a' + (rand() % 26));
+    //             pLetra->letra = ALL;
+    //             insereLetra(&pPalavra, *pLetra);
+    //           }
+    //           inserePalavra(&pTexto, *pPalavra);
+    //           cont++;
+    //         } while (cont != tamanhoTexto);
+    //         insereTexto(&bbt, *pTexto);
+    //       }
+    //       imprimeBiblioteca(&bbt);
+    //     // caso 2 - imprime texto
+    //     case 2:
+    //       imprimeBiblioteca(&*bbt);
+    //     // caso 3 - Ordena Seleção
+    //     case 3:
+    //       do
+    //       {
+    //         printf("   1 - Ordenar TOOS os Texto      \n");
+    //         printf("   2- Ordernar Biblioteca \n");
+    //         scanf("%d", &*opcao);
+    //         switch (*opcao)
+    //         {
+    //         case 1:
+    //           for (int i; i < *tamanhoBiblioteca; i++)
+    //           {
+    //             Select_Sort(bbt->biblioteca[i]);
+    //           }
+
+    //         case 2:
+    //           Select_Sort_bbt(&bbt);
+    //         }
+    //       } while (*opcao != 5);
+
+    //       // caso 4 - Ordena Quick_Sort
+    //     }
+    //   } while (*opcao != 5);
+    while (opcao != 5);
+  }
 }

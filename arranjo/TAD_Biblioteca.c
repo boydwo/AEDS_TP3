@@ -21,8 +21,9 @@ int imprimeBiblioteca(TBiblioteca *biblioteca)
     int i;
     for (i = INICIO; i < biblioteca->Ultimo; i++)
     {
-        printf("***************************************texto  ****** \n");
+        printf("TEXTO : %d  \n", i + 1);
         imprimeTexto(&biblioteca->biblioteca[i]);
+        printf("\n");
     }
 }
 

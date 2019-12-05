@@ -31,9 +31,9 @@ void imprimeTexto(TTexto *texto)
     for (i = 0; i < texto->tamanho; i++)
     {
         imprimePalavra(&texto->texto[i]);
-        printf("\n");
+        printf(" ");
     }
-    //printf("%c", texto[i]->palavra);
+    printf(" \n");
 }
 
 int tamanhoTexto(TTexto *texto)
