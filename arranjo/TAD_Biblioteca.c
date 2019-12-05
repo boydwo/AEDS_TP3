@@ -31,6 +31,8 @@ void removetexto(TBiblioteca *biblioteca)
 {
 }
 
+//-------------------------------------SELECT SORT-------------------------------------
+
 //ordena biblioteca
 int comparaBbbt(TTexto *texto1, TTexto *texto2)
 {
@@ -73,4 +75,46 @@ void Select_Sort_bbt(TBiblioteca pBbt)
     }
 
     imprimeBiblioteca(&pBbt);
+}
+
+//-------------------------------------QUICK SORT-------------------------------------
+
+//ordena biblioteca
+void QuickSort_bbt(TBiblioteca pBbt){
+    Ordena_bbt(INICIO, MAX_TAM - 1, pBbt);
+    imprimeBiblioteca(&pBbt);
+}
+
+void Ordena_bbt(int Esq, int Dir, TBiblioteca pBbt){
+    int i, j;
+    Particao(Esq, Dir, &i, &j, pBbt);
+    if(Esq < j){
+        Ordena(Esq, j, pBbt);
+    }
+    if(i < Dir){
+        Ordena(i, Dir, pBbt);
+    }
+}
+
+void Particao_bbt(int Esq, int Dir, int* i, int* j, TBiblioteca pBbt){
+    TTexto pivo, aux;
+    *i = Esq;
+    *j = Dir;
+    pivo = pBbt.biblioteca[(*i + *j)/2];
+
+    do{
+        while(pivo.tamanho > pBbt.biblioteca[*i].tamanho){
+            (*i)++;
+        }
+        while(pivo.tamanho < pBbt.biblioteca[*j].tamanho){
+            (*j)++;
+        }
+        if(*i <= *j){
+            aux = pBbt.biblioteca[*i];
+            pBbt.biblioteca[*i] = pBbt.biblioteca[*j];
+            pBbt.biblioteca[*j] = aux;
+            (*i)++;
+            (*j)--;
+        }while(*i <= *j);
+    }
 }
