@@ -94,7 +94,7 @@ void Select_Sort(TTexto pTexto)
 //-------------------------------------QUICK SORT-------------------------------------
 
 //ordena texto
-void QuickSort(TTexto pTexto, int n){
+void QuickSort(TTexto pTexto){
     Ordena(INICIO, MAX_TAM - 1, pTexto);
     imprimeTexto(&pTexto);
 }
