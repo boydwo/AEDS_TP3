@@ -1,4 +1,4 @@
-#include "TAD_Palavra.h"
+#include "TAD_PalavraLE.h"
 
 void inicializaPalavra(TPalavra* pPalavra){
     pPalavra->pPrimeiro = (Apontador)malloc(sizeof(TCelula));

@@ -1,4 +1,4 @@
-#include "TAD_Biblioteca.h"
+#include "TAD_BibliotecaLE.h"
 void inicializaBbt(TBiblioteca* pBbt){
     pBbt->pPrimeiro = (Apon)malloc(sizeof(TCelulaBiblioteca));
     pBbt->pUltimo = pBbt->pPrimeiro;
