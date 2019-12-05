@@ -37,9 +37,6 @@ int main()
     insereTexto(&bbt, pTexto);
   }
   imprimeBiblioteca(&bbt);
-  printf("\n8888888888888888888888888888888888888888888888888\n");
-  printf("\n-----------------------bbt------------------------\n");
-  Select_Sort_bbt(bbt);
 
   return 0;
 }
