@@ -28,10 +28,10 @@ void removeLetra(TPalavra *palavra)
 void imprimePalavra(TPalavra *palavra)
 {
     int i;
-
     for (i = palavra->Primeiro; i < palavra->Ultimo; i++)
         printf("%c", palavra->palavra[i].letra);
 }
+
 int tamanhoPalavra(TPalavra *palavra)
 {
     return palavra->tamanho;

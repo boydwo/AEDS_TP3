@@ -12,5 +12,6 @@ void inserePalavra(TTexto *texto, TPalavra palavra);
 void removePalavra(TTexto *texto);
 void imprimeTexto(TTexto *texto);
 int tamanhoTexto(TTexto *texto);
-int comparaPalavra(TPalavra *palavra1, TPalavra *palavra2);
+//void fSelect_Sort(int *pTexto);
+int compara(TPalavra *palavra1, TPalavra *palavra2);
 void Select_Sort(TTexto pTexto);
