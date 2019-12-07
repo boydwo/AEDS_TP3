@@ -1,5 +1,4 @@
-#ifndef TAD_PALAVRA_H_INCLUDED
-#define TAD_PALAVRA_H_INCLUDED
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -24,5 +23,3 @@ void imprimePalavra(TPalavra *pPalavra);
 int tamanhoPalavra(TPalavra* pPalavra);
 
 
-
-#endif // TAD_PALAVRA_H_INCLUDED
