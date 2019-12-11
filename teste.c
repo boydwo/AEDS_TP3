@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define TAM 10 // Define o tamanho do vetor;
-
+#define TAM 10                  // Define o tamanho do vetor;
+#define TAM 10                  // Define o tamanho do vetor;
 void fSelect_Sort(int *pVetor); // Declara a função select sort;
 
 int main(void)
